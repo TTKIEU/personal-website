@@ -202,11 +202,13 @@ a {
 -------------------------------- */
 
 .section {
-    max-width: 1400px;
+    width: min(92%, 1600px);
 
     margin: auto;
 
-    padding: 130px 5%;
+    padding:
+        100px
+        0;
 }
 
 .section-label {
@@ -1239,4 +1241,147 @@ footer {
     .phim-card .project-content h3 {
         font-size: 2.7rem;
     }
+}
+/* ==========================================================
+   LARGE DESKTOP LAYOUT
+   Makes the portfolio use wide monitors more effectively
+========================================================== */
+
+@media (min-width: 1200px) {
+
+    /* Wider overall content area */
+    .section,
+    .navbar,
+    footer {
+        width: min(92%, 1600px);
+        max-width: 1600px;
+    }
+
+
+    /* Reduce excessive vertical scrolling */
+    .section {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+
+    /* Hero should actually fill a desktop screen */
+    .hero {
+        min-height: 100vh;
+
+        grid-template-columns:
+            minmax(0, 1.25fr)
+            minmax(350px, 0.75fr);
+
+        gap: 80px;
+    }
+
+
+    /* Slightly larger readable body copy */
+    body {
+        font-size: 16px;
+    }
+
+
+    /* ------------------------------
+       EXPERIENCE
+    -------------------------------- */
+
+    .experience-card {
+        width: 100%;
+        padding: 55px 60px;
+    }
+
+
+    /* ------------------------------
+       PROJECTS
+    -------------------------------- */
+
+    .project-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 28px;
+    }
+
+
+    /*
+       Phim gets a full-width desktop showcase
+    */
+
+    .phim-card {
+        grid-column: 1 / -1;
+
+        grid-template-columns:
+            minmax(300px, 390px)
+            minmax(0, 1fr);
+
+        gap: clamp(70px, 8vw, 150px);
+
+        padding:
+            65px
+            clamp(60px, 7vw, 110px);
+    }
+
+
+    .phim-carousel {
+        max-width: 330px;
+    }
+
+
+    .phim-card .project-content {
+        max-width: 700px;
+    }
+
+
+    .phim-card .project-content h3 {
+        font-size: clamp(4rem, 5vw, 6rem);
+    }
+
+
+    .phim-card .project-content > p {
+        max-width: 580px;
+
+        font-size: 1.1rem;
+
+        line-height: 1.8;
+    }
+
+
+    /* Successorator + CVDioree side by side */
+
+    .project-card:not(.phim-card):not(.project-wide) {
+        min-height: 500px;
+
+        padding: 45px;
+    }
+
+
+    /* Portfolio spans full width */
+
+    .project-wide {
+        grid-column: 1 / -1;
+
+        min-height: 320px;
+
+        padding: 50px 55px;
+    }
+
+
+    /* ------------------------------
+       SKILLS
+    -------------------------------- */
+
+    .skills-grid {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+        gap: 60px;
+    }
+
+
+    .skill-group h3 {
+        font-size: 2.2rem;
+    }
+
 }
