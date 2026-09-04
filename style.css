@@ -2,7 +2,38 @@
    GLOBAL
 -------------------------------- */
 
+/* ------------------------------
+   LIGHT MODE
+-------------------------------- */
+
 :root {
+    --background: #fff8fb;
+    --surface: #ffffff;
+
+    --pink-light: #fde8f1;
+    --pink-soft: #f8c8dc;
+    --pink: #f09abc;
+    --pink-medium: #e86fa1;
+    --pink-dark: #bd4f7d;
+
+    --text: #2b2226;
+    --text-muted: #77666d;
+
+    --border: #efd6df;
+
+    --shadow: 0 20px 60px rgba(189, 79, 125, 0.12);
+
+    --radius-small: 14px;
+    --radius-medium: 24px;
+    --radius-large: 40px;
+}
+
+
+/* ------------------------------
+   DARK MODE
+-------------------------------- */
+
+body.dark {
     --background: #21191d;
     --surface: #2d2227;
 
@@ -18,10 +49,6 @@
     --border: #4b343f;
 
     --shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-
-    --radius-small: 14px;
-    --radius-medium: 24px;
-    --radius-large: 40px;
 }
 
 * {
@@ -38,12 +65,11 @@ body {
     background:
         radial-gradient(
             ellipse at 50% 115%,
-            #ff4fa3 0%,
-            rgba(255, 79, 163, 0.55) 20%,
-            rgba(255, 129, 180, 0.20) 42%,
-            transparent 68%
+            rgba(255, 129, 180, 0.2) 0%,
+            rgba(255, 129, 180, 0.1) 30%,
+            transparent 65%
         ),
-        #21191d;
+        var(--background);
 
     background-attachment: fixed;
 
@@ -56,8 +82,11 @@ body {
         sans-serif;
 
     line-height: 1.6;
-}
 
+    transition:
+        background 0.35s ease,
+        color 0.35s ease;
+}
 
 /* ------------------------------
    TYPOGRAPHY
