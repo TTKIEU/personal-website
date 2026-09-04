@@ -276,7 +276,8 @@ h3 {
     background:
         color-mix(
             in srgb,
-            var(--background) 92%,
+            var(--background) 32%,
+            #ba618b,
             transparent
         );
 
@@ -304,6 +305,7 @@ h3 {
     align-items: center;
 
     justify-content: space-between;
+
 }
 
 
