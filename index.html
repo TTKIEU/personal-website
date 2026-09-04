@@ -32,7 +32,7 @@
             <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
             <a href="#about">About</a>
-            <a href="assets/Taylin_Kieu_Resume.pdf" target="_blank">Resume</a>
+            <a href="assets/resume.pdf" target="_blank">Resume</a>
 
             <button
                 class="theme-button"
@@ -53,11 +53,11 @@
 
         <div class="hero-content">
 
-            <p class="eyebrow">HELLO THERE 👋</p>
+            <!-- <p class="eyebrow">HELLO THERE!</p> -->
 
             <h1>
                 Hey, I'm
-                <span class="highlight">Taylin.</span>
+                <span class="highlight">Taylin!</span>
             </h1>
 
             <h2>
@@ -204,11 +204,64 @@
         <div class="project-grid">
 
             <!-- PHIM -->
-            <article class="project-card project-large">
+            <article class="project-card project-large phim-card">
 
                 <div class="project-number">
                     01
                 </div>
+
+                <!-- DEMO CAROUSEL -->
+                <div class="phim-carousel">
+
+                    <div class="carousel-track">
+                        <img
+                            src="assets/project-images/phim/phim_logo.png"
+                            alt="Phim app feed screen"
+                            class="carousel-slide"
+                        >
+                        <img
+                            src="assets/project-images/phim/demo4.png"
+                            alt="Phim app feed screen"
+                            class="carousel-slide"
+                        >
+                        <img
+                            src="assets/project-images/phim/demo1.png"
+                            alt="Phim app home screen"
+                            class="carousel-slide active"
+                        >
+
+                        <img
+                            src="assets/project-images/phim/demo2.png"
+                            alt="Phim app movie screen"
+                            class="carousel-slide"
+                        >
+
+                        <img
+                            src="assets/project-images/phim/demo3.png"
+                            alt="Phim app feed screen"
+                            class="carousel-slide"
+                        >
+
+                    </div>
+
+                    <button
+                        class="carousel-button carousel-prev"
+                        aria-label="Previous screenshot"
+                    >
+                        ←
+                    </button>
+
+                    <button
+                        class="carousel-button carousel-next"
+                        aria-label="Next screenshot"
+                    >
+                        →
+                    </button>
+
+                    <div class="carousel-dots"></div>
+
+                </div>
+
 
                 <div class="project-content">
 
@@ -232,12 +285,20 @@
 
                 </div>
 
-                <span class="project-arrow">↗</span>
+
+                <a
+                    href="https://github.com/TTKIEU/Phim_App"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-arrow"
+                    aria-label="View Phim project on GitHub"
+                >
+                    ↗
+                </a>
 
             </article>
 
-
-            <!-- NACHOS -->
+                    <!-- SUCCESSORATOR -->
             <article class="project-card">
 
                 <div class="project-number">
@@ -247,21 +308,22 @@
                 <div class="project-content">
 
                     <p class="project-category">
-                        OPERATING SYSTEMS
+                        ANDROID DEVELOPMENT
                     </p>
 
-                    <h3>Nachos OS</h3>
+                    <h3>Successorator</h3>
 
                     <p>
-                        Implemented virtual memory, demand paging,
-                        page fault handling, process management,
-                        and low-level file I/O functionality.
+                        Built a task-management Android app with a state-driven task
+                        lifecycle, deadlines, prioritization, filtering, and scheduled
+                        reminders for upcoming work.
                     </p>
 
                     <div class="tags">
-                        <span>C++</span>
-                        <span>Virtual Memory</span>
-                        <span>Operating Systems</span>
+                        <span>Java</span>
+                        <span>Android</span>
+                        <span>JUnit</span>
+                        <span>Robolectric</span>
                     </div>
 
                 </div>
@@ -271,7 +333,7 @@
             </article>
 
 
-            <!-- GPU -->
+            <!-- CVDIOREE -->
             <article class="project-card">
 
                 <div class="project-number">
@@ -281,22 +343,23 @@
                 <div class="project-content">
 
                     <p class="project-category">
-                        PARALLEL COMPUTING
+                        FULL-STACK DEVELOPMENT
                     </p>
 
-                    <h3>GPU Computing</h3>
+                    <h3>CVDioree</h3>
 
                     <p>
-                        Built parallel kernels for matrix multiplication,
-                        image convolution, and vector operations while
-                        exploring memory optimization and GPU performance.
+                        Developed a full-stack web application with standardized REST APIs,
+                        asynchronous client-side interactions, session management, and
+                        telemetry collection across multiple backend implementations.
                     </p>
 
                     <div class="tags">
-                        <span>OpenCL</span>
-                        <span>C</span>
-                        <span>GPU</span>
-                        <span>Parallel Computing</span>
+                        <span>JavaScript</span>
+                        <span>Go</span>
+                        <span>Java</span>
+                        <span>Python</span>
+                        <span>Perl</span>
                     </div>
 
                 </div>
@@ -351,7 +414,7 @@
         <div class="section-heading">
 
             <div>
-                <p class="section-label">TOOLS OF THE TRADE</p>
+                <p class="section-label">Skills/Technologies/Concepts</p>
                 <h2>What I work with.</h2>
             </div>
 
