@@ -113,6 +113,7 @@ html {
 
 body {
     margin: 0;
+    position: relative;
 
     background:
         radial-gradient(
@@ -126,18 +127,28 @@ body {
     background-attachment: fixed;
 
     color: var(--text);
+}
 
-    font-family:
-        "MapleStory",
-        Arial,
-        Helvetica,
-        sans-serif;
+body::before {
+    content: "";
 
-    line-height: 1.6;
+    position: fixed;
+    inset: 0;
 
-    transition:
-        background 0.35s ease,
-        color 0.35s ease;
+    background-image:
+        url("./assets/Background_maple.png");
+
+    background-repeat: no-repeat;
+
+    background-size: cover;
+
+    background-position: center;
+
+    opacity: 0.12;
+
+    pointer-events: none;
+
+    z-index: -1;
 }
 
 
@@ -710,6 +721,7 @@ h3 {
     border-radius: 50%;
 
     background:
+        
         radial-gradient(
             circle,
             rgba(90, 133, 255, 0.28) 0%,
