@@ -1369,55 +1369,28 @@ h3 {
 
 
 /* =============================================
-   PHIM CAROUSEL
+   PHIM CAROUSEL — VERTICAL PHONE
 ============================================= */
 
 .phim-carousel {
     position: relative;
-
     width: 100%;
-
     max-width: 330px;
-
     margin: 20px auto;
-
-    justify-self: center;
 }
 
-
-.carousel-track {
+.phim-carousel .carousel-track {
     position: relative;
-
     width: 100%;
-
-    aspect-ratio:
-        9 / 19.5;
-
+    aspect-ratio: 9 / 19.5;
     overflow: hidden;
-
     border-radius: 32px;
-
     background: #080808;
-
-    border:
-        7px solid
-        #181818;
-
-    box-shadow:
-        0 8px 0
-        rgba(0, 0, 0, 0.25),
-
-        0 20px 50px
-        rgba(0, 0, 0, 0.35),
-
-        0 0 40px
-        rgba(255, 129, 180, 0.08);
+    border: 7px solid #181818;
 }
 
-
-.carousel-slide {
+.phim-carousel .carousel-slide {
     position: absolute;
-
     inset: 0;
 
     width: 100%;
@@ -1428,101 +1401,116 @@ h3 {
     background: #000;
 
     opacity: 0;
-
-    transform:
-        scale(0.985);
+    transform: scale(0.985);
 
     transition:
         opacity 0.35s ease,
         transform 0.35s ease;
 }
 
-
-.carousel-slide.active {
+.phim-carousel .carousel-slide.active {
     opacity: 1;
+    transform: scale(1);
+}
+/* =============================================
+   STANDARD PROJECT CAROUSEL — WEB / LANDSCAPE
+============================================= */
 
-    transform:
-        scale(1);
+.project-carousel {
+    position: relative;
+    width: 100%;
+    margin: 35px 0;
+}
+
+.project-carousel .carousel-track {
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background: var(--panel-deep);
+
+    border: 3px solid var(--border);
+}
+
+.project-carousel .carousel-slide {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    background: var(--panel-deep);
+
+    opacity: 0;
+    transform: scale(0.985);
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
+}
+
+.project-carousel .carousel-slide.active {
+    opacity: 1;
+    transform: scale(1);
 }
 
 
+/* =============================================
+   SHARED CAROUSEL CONTROLS
+============================================= */
+
 .carousel-button {
     position: absolute;
-
     top: 50%;
-
-    transform:
-        translateY(-50%);
+    transform: translateY(-50%);
 
     width: 46px;
     height: 46px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
-    border:
-        2px solid
-        var(--border);
+    border: 2px solid var(--border);
+    border-radius: 12px;
 
-    border-radius: 14px;
-
-    background:
-        var(--card-button);
-
-    color:
-        var(--text);
-
-    font-size: 1rem;
+    background: var(--card-button);
+    color: var(--text);
 
     cursor: pointer;
-
     z-index: 5;
-
-    box-shadow:
-        0 3px 0
-        rgba(0, 0, 0, 0.2);
-
-    transition:
-        background 0.15s ease,
-        transform 0.15s ease;
 }
 
-
-.carousel-button:hover {
-    background:
-        var(--pink-medium);
-
-    color: white;
-
-    transform:
-        translateY(-50%)
-        scale(1.05);
+.project-carousel .carousel-prev {
+    left: 14px;
 }
 
+.project-carousel .carousel-next {
+    right: 14px;
+}
 
-.carousel-prev {
+.phim-carousel .carousel-prev {
     left: -58px;
 }
 
-
-.carousel-next {
+.phim-carousel .carousel-next {
     right: -58px;
 }
 
-
 .carousel-dots {
     display: flex;
-
     justify-content: center;
-
     gap: 8px;
-
-    margin-top: 18px;
+    margin-top: 14px;
 }
-
 
 .carousel-dot {
     width: 9px;
@@ -1531,27 +1519,17 @@ h3 {
     padding: 0;
 
     border: none;
-
     border-radius: 50%;
 
-    background:
-        var(--border);
+    background: var(--border);
 
     cursor: pointer;
-
-    transition:
-        width 0.2s ease,
-        background 0.2s ease;
 }
-
 
 .carousel-dot.active {
     width: 24px;
-
     border-radius: 10px;
-
-    background:
-        var(--pink-medium);
+    background: var(--pink-medium);
 }
 
 
@@ -2088,4 +2066,66 @@ footer {
         font-size: 0.9rem;
     }
 
+}
+.typing-cursor::after {
+    content: "|";
+
+    display: inline-block;
+
+    margin-left: 5px;
+
+    color: var(--pink-medium);
+
+    animation:
+        cursorBlink
+        0.7s
+        step-end
+        infinite;
+}
+
+
+@keyframes cursorBlink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+
+}
+/* =============================================
+   HERO SEQUENCE
+============================================= */
+
+/* Paragraph starts completely hidden */
+.hero-description-typing {
+    visibility: hidden;
+}
+
+
+/* Buttons start hidden */
+.hero-buttons-delayed {
+    opacity: 0;
+    transform: translateY(12px);
+
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+/* Reveal buttons after typing */
+.hero-buttons-delayed.show {
+    opacity: 1;
+    transform: translateY(0);
+
+    visibility: visible;
+    pointer-events: auto;
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
 }

@@ -50,42 +50,47 @@
 
     <!-- HERO -->
     <section class="hero section" id="home">
+    <div class="hero-content">
 
-        <div class="hero-content">
+        <p class="eyebrow">
+            HELLO THERE ✦
+        </p>
 
-            <!-- <p class="eyebrow">HELLO THERE!</p> -->
+        <h1 id="typedTitle">
+            Hey, I'm <span class="highlight">Taylin!</span>
+        </h1>
 
-            <h1>
-                Hey, I'm
-                <span class="highlight">Taylin!</span>
-            </h1>
+        <p
+            id="typedDescription"
+            class="hero-description hero-description-typing"
+        >
+            Software engineer with experience across web,
+            mobile, systems, and application development.
+        </p>
 
-            <h2>
-                I build software that makes
-                complicated things feel simple.
-            </h2>
+        <div class="hero-buttons hero-buttons-delayed">
 
-            <p class="hero-description">
-                Software engineer with experience across web,
-                mobile, operating systems, and parallel computing.
-            </p>
+            <a
+                href="#projects"
+                class="button button-primary"
+            >
+                See what I've built →
+            </a>
 
-            <div class="hero-buttons">
-                <a href="#projects" class="button button-primary">
-                    See what I've built →
-                </a>
-
-                <a
-                    href="assets/resume.pdf"
-                    target="_blank"
-                    class="button button-secondary"
-                >
-                    View Resume
-                </a>
-            </div>
+            <a
+                href="assets/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="button button-secondary"
+            >
+                View Resume
+            </a>
 
         </div>
 
+    </div>
+
+    </div>
 <div class="hero-decoration">
 
     <div class="intro-card">
@@ -119,9 +124,9 @@
 
             <div class="intro-divider"></div>
 
-            <p class="intro-status">
+            <!-- <p class="intro-status">
                 Building software for all!
-            </p>
+            </p> -->
 
             <div class="intro-progress">
 
@@ -228,7 +233,10 @@
                     <span>JavaScript</span>
                     <span>Frontend</span>
                     <span>Web Performance</span>
+                    <span>MySQL</span>
                     <span>Git</span>
+                    <span>Agile</span>
+                    <span>Jira</span>
                 </div>
 
             </div>
@@ -268,11 +276,21 @@
                     <div class="carousel-track">
                         <img
                             src="assets/project-images/phim/phim_logo.png"
-                            alt="Phim app feed screen"
+                            alt="Phim app logo"
                             class="carousel-slide"
                         >
                         <img
                             src="assets/project-images/phim/demo4.png"
+                            alt="Phim app Welcome"
+                            class="carousel-slide"
+                        >
+                        <img
+                            src="assets/project-images/phim/demo6.png"
+                            alt="Phim app Welcome"
+                            class="carousel-slide"
+                        >
+                        <img
+                            src="assets/project-images/phim/demo3.png"
                             alt="Phim app feed screen"
                             class="carousel-slide"
                         >
@@ -289,8 +307,8 @@
                         >
 
                         <img
-                            src="assets/project-images/phim/demo3.png"
-                            alt="Phim app feed screen"
+                            src="assets/project-images/phim/demo5.png"
+                            alt="Phim app Welcome"
                             class="carousel-slide"
                         >
 
@@ -320,6 +338,9 @@
                     <p class="project-category">
                         MOBILE DEVELOPMENT
                     </p>
+                    <span class="status-badge">
+                        IN PROGRESS
+                    </span>
 
                     <h3>Phim</h3>
 
@@ -349,10 +370,177 @@
                 </a>
 
             </article>
-            <article class="project-card project-wide">
+                        <article class="project-card">
 
                 <div class="project-number">
                     02
+                </div>
+                <div class="project-carousel">
+
+                <div class="carousel-track">
+
+                    <img
+                        src="assets/project-images/raytracer/raytracer_1.png"
+                        alt="Raytracer demo screen one"
+                        class="carousel-slide active"
+                    >
+
+                    <img
+                        src="assets/project-images/raytracer/raytracer_2.png"
+                        alt="Raytracer demo screen two"
+                        class="carousel-slide"
+                    >
+
+                    <img
+                        src="assets/project-images/raytracer/raytracer_3.png"
+                        alt="Raytracer demo screen three"
+                        class="carousel-slide"
+                    >
+                    <img
+                        src="assets/project-images/raytracer/raytracer_4.png"
+                        alt="Raytracer demo screen four"
+                        class="carousel-slide"
+                    >
+                    <img
+                        src="assets/project-images/raytracer/raytracer_5.png"
+                        alt="Raytracer demo screen five"
+                        class="carousel-slide"
+                    >
+
+                </div>
+
+                <button
+                    class="carousel-button carousel-prev"
+                    aria-label="Previous Successorator screenshot"
+                >
+                    ←
+                </button>
+
+                <button
+                    class="carousel-button carousel-next"
+                    aria-label="Next Successorator screenshot"
+                >
+                    →
+                </button>
+
+                <div class="carousel-dots"></div>
+
+                </div>
+                <div class="project-content">
+
+                    <p class="project-category">
+                        Multithreaded Ray Tracer
+                    </p>
+
+                    <h3>Multithreaded Ray Tracer</h3>
+
+                    <p>
+                        Built a multithreaded 3D ray tracer in C++ using OpenGL and GLM,
+                        with producer-consumer threading to parallelize ray calculations
+                        across CPU cores. Implemented recursive ray tracing, randomized
+                        pixel sampling, multi-bounce shading, scene-graph traversal, and
+                        a custom quaternion-based camera system.
+                    </p>
+
+                    <div class="tags">
+                        <span>C++</span>
+                        <span>OpenGL</span>
+                        <span>GLM</span>
+                        <span>Multithreading</span>
+                        <span>Computer Graphics</span>
+                    </div>
+
+                </div>
+            </article>
+        
+            <!-- CVDIOREE -->
+            <article class="project-card demo-project-card"">
+
+                <div class="project-number">
+                    03
+                </div>
+                <div class="project-carousel">
+
+                <div class="carousel-track">
+
+                    <img
+                        src="assets/project-images/cvDioree/cvdioree_1.png"
+                        alt="Successorator demo screen one"
+                        class="carousel-slide active"
+                    >
+
+                    <img
+                        src="assets/project-images/cvDioree/cvdioree_2.png"
+                        alt="Successorator demo screen two"
+                        class="carousel-slide"
+                    >
+
+                    <img
+                        src="assets/project-images/cvDioree/cvdioree_3.png"
+                        alt="Successorator demo screen three"
+                        class="carousel-slide"
+                    >
+                    <img
+                        src="assets/project-images/cvDioree/cvdioree_4.png"
+                        alt="Successorator demo screen four"
+                        class="carousel-slide"
+                    >
+                    <img
+                        src="assets/project-images/cvDioree/cvdioree_5.png"
+                        alt="Successorator demo screen five"
+                        class="carousel-slide"
+                    >
+
+                </div>
+
+                <button
+                    class="carousel-button carousel-prev"
+                    aria-label="Previous Successorator screenshot"
+                >
+                    ←
+                </button>
+
+                <button
+                    class="carousel-button carousel-next"
+                    aria-label="Next Successorator screenshot"
+                >
+                    →
+                </button>
+
+                <div class="carousel-dots"></div>
+
+                </div>
+                <div class="project-content">
+
+                    <p class="project-category">
+                        FULL-STACK DEVELOPMENT
+                    </p>
+
+                    <h3>CVDioree</h3>
+
+                    <p>
+                        Developed a full-stack web application with standardized REST APIs,
+                        asynchronous client-side interactions, session management, and
+                        telemetry collection across multiple backend implementations.
+                    </p>
+
+                    <div class="tags">
+                        <span>JavaScript</span>
+                        <span>Go</span>
+                        <span>Java</span>
+                        <span>Python</span>
+                        <span>Perl</span>
+                    </div>
+
+                </div>
+<!-- 
+                <span class="project-arrow">↗</span> -->
+
+            </article>
+            <article class="project-card project-wide">
+
+                <div class="project-number">
+                    04
                 </div>
 
                 <div class="project-content">
@@ -379,15 +567,18 @@
 
                 </div>
 
-                <span class="project-arrow">↗</span>
+                <!-- <span class="project-arrow">↗</span> -->
 
             </article>
 
-                    <!-- SUCCESSORATOR -->
+
+
+
+            <!-- SUCCESSORATOR -->
             <article class="project-card">
 
                 <div class="project-number">
-                    03
+                    05
                 </div>
 
                 <div class="project-content">
@@ -413,80 +604,13 @@
 
                 </div>
 
-                <span class="project-arrow">↗</span>
+                <!-- <span class="project-arrow">↗</span> -->
 
             </article>
+                        <!-- ==========================
+                PULSEGRID
+            =========================== -->
 
-
-            <!-- CVDIOREE -->
-            <article class="project-card">
-
-                <div class="project-number">
-                    04
-                </div>
-
-                <div class="project-content">
-
-                    <p class="project-category">
-                        FULL-STACK DEVELOPMENT
-                    </p>
-
-                    <h3>CVDioree</h3>
-
-                    <p>
-                        Developed a full-stack web application with standardized REST APIs,
-                        asynchronous client-side interactions, session management, and
-                        telemetry collection across multiple backend implementations.
-                    </p>
-
-                    <div class="tags">
-                        <span>JavaScript</span>
-                        <span>Go</span>
-                        <span>Java</span>
-                        <span>Python</span>
-                        <span>Perl</span>
-                    </div>
-
-                </div>
-
-                <span class="project-arrow">↗</span>
-
-            </article>
-
-
-            <!-- PORTFOLIO -->
-            <article class="project-card project-wide">
-
-                <div class="project-number">
-                    05
-                </div>
-
-                <div class="project-content">
-
-                    <p class="project-category">
-                        WEB DEVELOPMENT
-                    </p>
-
-                    <h3>This Portfolio</h3>
-
-                    <p>
-                        Designed and developed a responsive personal portfolio
-                        using semantic HTML, modern CSS, vanilla JavaScript,
-                        reusable components, responsive layouts, and subtle
-                        interactive effects.
-                    </p>
-
-                    <div class="tags">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                    </div>
-
-                </div>
-
-                <span class="project-arrow">↗</span>
-
-            </article>
             <article class="project-card">
 
                 <div class="project-number">
@@ -495,33 +619,58 @@
 
                 <div class="project-content">
 
-                    <p class="project-category">
-                        Multithreaded Ray Tracer
-                    </p>
+                    <div class="project-heading-row">
 
-                    <h3>CVDioree</h3>
+                        <p class="project-category">
+                            FULL-STACK / CLOUD
+                        </p>
+
+                        <span class="status-badge">
+                            IN PROGRESS
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        PulseGrid
+                    </h3>
 
                     <p>
-                        Built a multithreaded 3D ray tracer in C++ using OpenGL and GLM,
-                        with producer-consumer threading to parallelize ray calculations
-                        across CPU cores. Implemented recursive ray tracing, randomized
-                        pixel sampling, multi-bounce shading, scene-graph traversal, and
-                        a custom quaternion-based camera system.
+                        Building a full-stack service monitoring platform
+                        for tracking application health, availability,
+                        and operational status across backend services.
+                    </p>
+
+                    <p class="project-progress-note">
+                        Currently developing the Spring Boot backend,
+                        PostgreSQL persistence layer, containerized
+                        development environment, and monitoring APIs.
                     </p>
 
                     <div class="tags">
-                        <span>C++</span>
-                        <span>OpenGL</span>
-                        <span>GLM</span>
-                        <span>Multithreading</span>
-                        <span>Computer Graphics</span>
+
+                        <span>Java</span>
+                        <span>Spring Boot</span>
+                        <span>PostgreSQL</span>
+                        <span>Docker</span>
+                        <span>REST API</span>
+
                     </div>
+                    
+                    <a
+                        href="https://github.com/TTKIEU/pulsegrid"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="project-arrow"
+                        aria-label="View pulsegrid project on GitHub"
+                    >
+                        ↗
+                    </a>
 
                 </div>
 
-                <span class="project-arrow">↗</span>
+            </article>
 
-        
 
     </section>
 
@@ -547,7 +696,7 @@
                 <p>Languages</p>
 
                 <h3>
-                    C++
+                    C/C++
                     <br>
                     Java
                     <br>

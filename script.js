@@ -106,97 +106,61 @@ revealElements.forEach(element => {
 });
 
 
-// ------------------------------
-// SLIGHT PROJECT CARD TILT
-// ------------------------------
+// ============================================
+// PROJECT CAROUSELS
+// ============================================
 
-const projectCards = document.querySelectorAll(".project-card");
+const carousels = document.querySelectorAll(
+    ".phim-carousel, .project-carousel"
+);
 
-
-projectCards.forEach(card => {
-
-    card.addEventListener("mousemove", event => {
-
-        // Disable effect on smaller screens
-        if (window.innerWidth < 900) {
-            return;
-        }
-
-        const rect = card.getBoundingClientRect();
-
-        const x =
-            event.clientX -
-            rect.left;
-
-        const y =
-            event.clientY -
-            rect.top;
-
-        const centerX =
-            rect.width / 2;
-
-        const centerY =
-            rect.height / 2;
-
-        const rotateX =
-            ((y - centerY) / centerY) * -1.5;
-
-        const rotateY =
-            ((x - centerX) / centerX) * 1.5;
-
-        card.style.transform =
-            `translateY(-8px)
-             rotateX(${rotateX}deg)
-             rotateY(${rotateY}deg)`;
-
-    });
-
-
-    card.addEventListener("mouseleave", () => {
-
-        card.style.transform = "";
-
-    });
-
-});
-// ------------------------------
-// PHIM DEMO CAROUSEL
-// ------------------------------
-
-const phimCarousel = document.querySelector(".phim-carousel");
-
-if (phimCarousel) {
+carousels.forEach(carousel => {
 
     const slides =
-        phimCarousel.querySelectorAll(".carousel-slide");
+        carousel.querySelectorAll(".carousel-slide");
 
     const previousButton =
-        phimCarousel.querySelector(".carousel-prev");
+        carousel.querySelector(".carousel-prev");
 
     const nextButton =
-        phimCarousel.querySelector(".carousel-next");
+        carousel.querySelector(".carousel-next");
 
     const dotsContainer =
-        phimCarousel.querySelector(".carousel-dots");
+        carousel.querySelector(".carousel-dots");
+
+
+    if (slides.length === 0 || !dotsContainer) {
+        return;
+    }
+
 
     let currentSlide = 0;
 
 
-    // Create navigation dots
+    // Clear any existing dots
+    dotsContainer.innerHTML = "";
+
+
+    // IMPORTANT:
+    // Remove active from every slide before initializing
+    slides.forEach(slide => {
+        slide.classList.remove("active");
+    });
+
+
+    // Create dots
     slides.forEach((slide, index) => {
 
-        const dot = document.createElement("button");
+        const dot =
+            document.createElement("button");
 
         dot.classList.add("carousel-dot");
 
         dot.setAttribute(
             "aria-label",
-            `Go to screenshot ${index + 1}`
+            `Go to slide ${index + 1}`
         );
 
-        if (index === 0) {
-            dot.classList.add("active");
-        }
 
         dot.addEventListener("click", event => {
 
@@ -207,6 +171,7 @@ if (phimCarousel) {
             showSlide(currentSlide);
 
         });
+
 
         dotsContainer.appendChild(dot);
 
@@ -227,6 +192,7 @@ if (phimCarousel) {
             dot.classList.remove("active");
         });
 
+
         slides[index].classList.add("active");
 
         dots[index].classList.add("active");
@@ -234,28 +200,264 @@ if (phimCarousel) {
     }
 
 
-    nextButton.addEventListener("click", event => {
+    // ========================================
+    // FORCE CAROUSEL TO START AT FIRST IMAGE
+    // ========================================
 
-        event.stopPropagation();
+    currentSlide = 0;
+    showSlide(0);
 
-        currentSlide =
-            (currentSlide + 1) % slides.length;
 
-        showSlide(currentSlide);
+    // NEXT
+    if (nextButton) {
 
+        nextButton.addEventListener("click", event => {
+
+            event.stopPropagation();
+
+            currentSlide =
+                (currentSlide + 1) %
+                slides.length;
+
+            showSlide(currentSlide);
+
+        });
+
+    }
+
+
+    // PREVIOUS
+    if (previousButton) {
+
+        previousButton.addEventListener("click", event => {
+
+            event.stopPropagation();
+
+            currentSlide =
+                (
+                    currentSlide
+                    - 1
+                    + slides.length
+                )
+                %
+                slides.length;
+
+            showSlide(currentSlide);
+
+        });
+
+    }
+
+});
+
+
+const projectCards =
+    document.querySelectorAll(
+        ".project-card:not(.phim-card)"
+    );
+
+projectCards.forEach(card => {
+
+    card.addEventListener("mousemove", event => {
+
+        if (window.innerWidth < 900) {
+            return;
+        }
+
+        const rect =
+            card.getBoundingClientRect();
+
+        const x =
+            event.clientX - rect.left;
+
+        const y =
+            event.clientY - rect.top;
+
+        const centerX =
+            rect.width / 2;
+
+        const centerY =
+            rect.height / 2;
+
+        const rotateX =
+            ((y - centerY) / centerY) * -1.5;
+
+        const rotateY =
+            ((x - centerX) / centerX) * 1.5;
+
+        card.style.transform =
+            `translateY(-8px)
+             rotateX(${rotateX}deg)
+             rotateY(${rotateY}deg)`;
     });
 
-
-    previousButton.addEventListener("click", event => {
-
-        event.stopPropagation();
-
-        currentSlide =
-            (currentSlide - 1 + slides.length)
-            % slides.length;
-
-        showSlide(currentSlide);
-
+    card.addEventListener("mouseleave", () => {
+        card.style.transform = "";
     });
+});
+
+// ============================================
+// HERO TYPING ANIMATION
+// ============================================
+
+const typedTitle =
+    document.getElementById("typedTitle");
+
+const typedDescription =
+    document.getElementById("typedDescription");
+
+const heroButtons =
+    document.querySelector(".hero-buttons-delayed");
+
+
+function sleep(ms) {
+    return new Promise(resolve =>
+        setTimeout(resolve, ms)
+    );
+}
+
+
+async function typeText(element, text, speed) {
+
+    element.textContent = "";
+
+    /* Make visible only AFTER text has been cleared */
+    element.style.visibility = "visible";
+
+    element.classList.add("typing-cursor");
+
+
+    for (let i = 0; i < text.length; i++) {
+
+        element.textContent += text[i];
+
+        await sleep(speed);
+
+    }
+
+
+    element.classList.remove("typing-cursor");
+}
+
+
+async function startTypingAnimation() {
+
+    if (!typedTitle || !typedDescription) {
+        return;
+    }
+
+
+    /*
+        Save paragraph before clearing anything.
+    */
+
+    const descriptionText =
+        typedDescription.textContent
+            .replace(/\s+/g, " ")
+            .trim();
+
+
+    /*
+        Clear paragraph immediately while hidden.
+        This prevents the flash.
+    */
+
+    typedDescription.textContent = "";
+
+
+    // ========================================
+    // TYPE "HEY, I'M "
+    // ========================================
+
+    typedTitle.innerHTML = "";
+
+    typedTitle.classList.add(
+        "typing-cursor"
+    );
+
+
+    const firstPart = "Hey, I'm ";
+
+
+    for (let i = 0; i < firstPart.length; i++) {
+
+        typedTitle.append(
+            firstPart[i]
+        );
+
+        await sleep(70);
+
+    }
+
+
+    // ========================================
+    // TYPE "TAYLIN!"
+    // ========================================
+
+    const nameSpan =
+        document.createElement("span");
+
+    nameSpan.classList.add(
+        "highlight"
+    );
+
+    typedTitle.appendChild(
+        nameSpan
+    );
+
+
+    const name = "Taylin!";
+
+
+    for (let i = 0; i < name.length; i++) {
+
+        nameSpan.textContent +=
+            name[i];
+
+        await sleep(70);
+
+    }
+
+
+    typedTitle.classList.remove(
+        "typing-cursor"
+    );
+
+
+    // Small pause after title
+
+    await sleep(350);
+
+
+    // ========================================
+    // TYPE DESCRIPTION
+    // ========================================
+
+    await typeText(
+        typedDescription,
+        descriptionText,
+        18
+    );
+
+
+    // Small pause
+
+    await sleep(250);
+
+
+    // ========================================
+    // REVEAL BUTTONS
+    // ========================================
+
+    if (heroButtons) {
+
+        heroButtons.classList.add(
+            "show"
+        );
+
+    }
 
 }
+
+
+startTypingAnimation();
